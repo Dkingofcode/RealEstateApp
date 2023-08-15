@@ -7,7 +7,7 @@ import { GoVerified } from 'react-icons/goverified';
 import millify from 'millify';
 
 
-const Property = ({ property: {coverPhoto, price, rentFrquency, rooms, title, baths, area, agency, isVerified, externalID } }) => (
+const Property = ({ property: {coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID } }) => (
    <Link href={`/property/${externalID}`} passHref>
       <Flex flexWrap="wrap" w="420px" p="5" paddingTop="0" justifyContent="flex-start" cursor="pointer">
         <Box>
@@ -17,7 +17,7 @@ const Property = ({ property: {coverPhoto, price, rentFrquency, rooms, title, ba
           <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
            <Flex alignItems="center">
              <Box paddingRight="3" color="green.400">{isVerified && <GoVerified  />}</Box>  
-             <Text fontWeight="bold" fontSize="lg">AED {price}{rentFrquency && `/${rentFrequency}`}</Text>
+             <Text fontWeight="bold" fontSize="lg">AED {millify(price)}{rentFrquency && `/${rentFrequency}`}</Text>
            </Flex>
            <Box>
              <Avatar size="sm" src={agency?.logo?.url} />
@@ -27,7 +27,8 @@ const Property = ({ property: {coverPhoto, price, rentFrquency, rooms, title, ba
             {rooms} <FaBed  /> | {baths} | <FaBath /> | {millify(area)} sqft <BsGridFill />
           </Flex>
          <Text fontSize="lg">
-            {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+            {/* {title.length > 30 ? `${title.substring(0, 30)}...` : title} */}
+            {title}
          </Text>
         </Box>
       </Flex>
